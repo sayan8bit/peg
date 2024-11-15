@@ -1,0 +1,140 @@
+/* Global styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: #181818; /* Dark background for the body */
+  font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+  color: #e0e0e0; /* Soft light gray text */
+  overflow: hidden;
+}
+
+h1 {
+  font-size: 2.5em;
+  color: #f8f8f8; /* Lighter color for the title */
+  margin-bottom: 20px;
+  font-weight: 600;
+}
+
+#game-board {
+  display: grid;
+  grid-template-columns: repeat(7, 60px);
+  grid-template-rows: repeat(7, 60px);
+  gap: 10px;
+  padding: 20px;
+  background-color: #212121; /* Darker board background */
+  border-radius: 20px;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.6); /* Soft shadow for depth */
+  transition: all 0.3s ease-in-out;
+}
+
+#game-board:hover {
+  box-shadow: 0 6px 25px rgba(0, 0, 0, 0.8); /* Enhance shadow on hover */
+}
+
+.cell {
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  border-radius: 50%;
+  cursor: pointer;
+  transition: transform 0.2s ease, background-color 0.2s ease;
+}
+
+/* Hover effect for cells */
+.cell:hover {
+  transform: scale(1.05);
+  background-color: rgba(255, 255, 255, 0.1); /* Subtle highlight on hover */
+}
+
+/* Peg appearance */
+.peg {
+  width: 40px;
+  height: 40px;
+  background-color: #66bb6a; /* Soft green */
+  border-radius: 50%;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.6); /* Depth and subtle glow */
+  transition: background-color 0.3s ease, transform 0.3s ease;
+}
+
+.peg:hover {
+  background-color: #43a047; /* Darker green on hover */
+  transform: scale(1.2);
+}
+
+/* Empty cell */
+.empty {
+  background-color: #424242; /* Dark grey for empty cells */
+  border-radius: 50%;
+  box-shadow: inset 0 0 15px rgba(0, 0, 0, 0.3); /* Subtle inset shadow */
+}
+
+/* Hidden cells (cells that are not visible) */
+.hidden {
+  visibility: hidden;
+}
+
+/* Game message styling */
+#game-message {
+  margin-top: 20px;
+  font-size: 1.5em;
+  color: #ccc;
+  text-align: center;
+  font-weight: 500;
+}
+
+/* Button styles */
+button {
+  margin-top: 20px;
+  padding: 12px 24px;
+  font-size: 1.2em;
+  color: #fff;
+  background-color: #4caf50; /* Green color to match pegs */
+  border: none;
+  border-radius: 30px;
+  cursor: pointer;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3); /* Button depth */
+  transition: background-color 0.3s ease, transform 0.3s ease,
+    box-shadow 0.3s ease;
+  outline: none;
+}
+
+button:hover {
+  background-color: #388e3c; /* Slightly darker green on hover */
+  transform: translateY(-2px); /* Button lift effect */
+  box-shadow: 0 8px 25px rgba(0, 0, 0, 0.4); /* Stronger shadow */
+}
+
+button:active {
+  transform: translateY(1px); /* Button press effect */
+  box-shadow: 0 3px 8px rgba(0, 0, 0, 0.3); /* Slight shadow for press */
+}
+
+/* Responsive Design: Scaling on smaller screens */
+@media (max-width: 600px) {
+  #game-board {
+    grid-template-columns: repeat(7, 50px);
+    grid-template-rows: repeat(7, 50px);
+    gap: 5px;
+  }
+
+  .cell {
+    width: 50px;
+    height: 50px;
+  }
+
+  .peg {
+    width: 30px;
+    height: 30px;
+  }
+}
